@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oscar-production-pipeline"
+version = "3.0.0"
+description = "Ocean Surface Current Analyses Real-time (OSCAR) production pipeline"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "xarray",
+    "netcdf4",           # xarray netCDF engine (open_dataset / to_netcdf)
+    "matplotlib",
+    "cartopy",
+    "pyyaml",
+    "cdsapi",            # Copernicus Climate Data Store (ERA5 winds)
+    "copernicusmarine",  # CMEMS SSH
+    "requests",          # ERDDAP drifter download
+    "podaac-data-subscriber",  # provides the `podaac-data-downloader` CLI
+]
+
+[project.scripts]
+oscar = "oscar.main:main"
+
+[tool.setuptools.packages.find]
+include = ["oscar*"]
+
+[tool.setuptools.package-data]
+oscar = ["config/*.yaml"]
