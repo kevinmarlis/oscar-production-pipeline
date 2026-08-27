@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oscar-production-pipeline"
+version = "3.0.0"
+description = "Ocean Surface Current Analyses Real-time (OSCAR) production pipeline"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+    # Pinned to the 1.x series: the computation code (esp. equatorial_treatment.py)
+    # was written/validated against numpy<2, which is lenient about casting size-1
+    # arrays to Python scalars (scipy.integrate.quad integrands). numpy>=2 makes that
+    # a hard TypeError. This pin also cascades scipy to a numpy-1.x-compatible build.
+    "numpy>=1.26,<2",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "xarray",
+    "netcdf4",           # xarray netCDF engine (open_dataset / to_netcdf)
+    "matplotlib",
+    "cartopy",
+    "pyyaml",
+    "cdsapi",            # Copernicus Climate Data Store (ERA5 winds)
+    "copernicusmarine",  # CMEMS SSH
+    "requests",          # ERDDAP drifter download
+    "podaac-data-subscriber",  # provides the `podaac-data-downloader` CLI
+]
+
+[project.scripts]
+oscar = "oscar.main:main"
+
+[tool.setuptools.packages.find]
+include = ["oscar*"]
+
+[tool.setuptools.package-data]
+oscar = ["config/*.yaml"]

@@ -8,11 +8,18 @@ Datasets are available on PO.DAAC:  https://podaac.jpl.nasa.gov/cloud-datasets?s
 
 # Setup Instructions
 
-## Required Python Modules
-Here is a shortlist of the packages to install. 
+## Installation
+Requires **Python 3.12**. From the repository root, create a virtual environment and install
+the package (this pulls in all dependencies, declared in `pyproject.toml`):
 
-xarray, pyyaml, scipy, copernicusmarine, numpy, pandas, cdsapi, matplotlib ,cartopy , scikit-learn, podaac-data-subscriber, xhistogram  
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
 
+Dependencies installed: xarray, netcdf4, pyyaml, scipy, copernicusmarine, numpy, pandas,
+cdsapi, matplotlib, cartopy, scikit-learn, requests, podaac-data-subscriber.
 
 ---
 
@@ -77,10 +84,14 @@ open "/Applications/Python 3.12/Install Certificates.command"
 ---
 
 ## Quick Start
-- Change options in config/io_config.yaml
-- Option to change paths in config/setup.py
-- Once everything is set up, run the package as a module from the project root:
+- Change options in `oscar/config/io_config.yaml`
+- Option to change paths in `oscar/config/setup.py` (by default, inputs are written to
+  `datasets/` and outputs to `plots/` inside the repo; both are git-ignored)
+- Once everything is set up (and the venv is activated), run the pipeline via the installed
+  console command:
 
 ```bash
-python3 -m oscar-currents-main.main
+oscar
 ```
+
+Equivalently: `python -m oscar.main`
