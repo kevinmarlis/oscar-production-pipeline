@@ -95,3 +95,51 @@ oscar
 ```
 
 Equivalently: `python -m oscar.main`
+
+---
+
+# Testing
+
+There is a `pytest` test suite that acts as a safety net for changes to the code. Its main
+job is to catch **silent numerical drift** — a change that still runs and produces
+plausible-looking currents but quietly alters the science.
+
+## Running the tests
+
+Install the test tools once (adds `pytest`), then run the suite:
+
+```bash
+pip install -e ".[dev]"   # once; adds pytest to your environment
+pytest -m "not slow"       # the everyday check — runs in a few seconds
+```
+
+`pytest -m "not slow"` is what you should run before committing a change. There is also one
+`slow` test (`pytest -m slow`) that recomputes a full day of currents and takes ~75 seconds;
+it only runs where the day-1 input files are present, so it's for local/nightly use rather
+than every change.
+
+## What the tests are checking
+
+- **`tests/unit/`** — small, fast checks that individual formulas are correct (e.g. a known
+  thermal-expansion value, gradients of a known field, the wind-stress and forcing physics).
+- **`tests/integration/`** — the "plumbing": finding input files, choosing final vs interim,
+  reading/renaming/unit-converting the SSH/SST/wind inputs, and writing the output NetCDF.
+- **`tests/regression/`** — the safety net proper: it runs the current-computation and
+  compares the numbers against a saved baseline (`tests/fixtures/*.json`).
+
+## If a regression test fails
+
+You'll get a plain-language message. A mismatch means the computed currents no longer match
+the saved baseline, which is one of two things:
+
+1. **Unintended** — a change accidentally altered the results. Investigate the change; the
+   currents drifted.
+2. **Intended** — you deliberately improved the science and expect the numbers to change.
+   In that case, refresh the baseline and commit it:
+
+   ```bash
+   python tests/generate_reference.py --fast   # then commit the updated tests/fixtures/*.json
+   ```
+
+See [`tests/README.md`](tests/README.md) for the full layout, tolerances, and how to
+regenerate the baselines.
