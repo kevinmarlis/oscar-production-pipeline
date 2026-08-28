@@ -31,6 +31,9 @@ dist/
 # --- Editor / workspace files ---
 *.code-workspace
 
+# -- Testing ---
+.pytest_cache
+
 # --- Credentials (never commit) ---
 .netrc
 .cdsapirc

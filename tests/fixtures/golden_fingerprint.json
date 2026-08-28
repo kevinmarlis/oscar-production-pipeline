@@ -1,0 +1,241 @@
+{
+  "fields": {
+    "Ub.imag": {
+      "finite_count": 2195252,
+      "nanmax": 1.2239953916022026,
+      "nanmean": -0.0006293673773196376,
+      "nanmin": -1.9914196854758814,
+      "nanstd": 0.013612229241373485,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        -0.0011170500473153269,
+        null,
+        null,
+        null,
+        0.007412461103385247,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Ub.real": {
+      "finite_count": 2195252,
+      "nanmax": 2.464362022592767,
+      "nanmean": -0.001164395394008007,
+      "nanmin": -2.2250916086653123,
+      "nanstd": 0.018379260534426102,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        -0.0011790765417064154,
+        null,
+        null,
+        null,
+        -0.0009184661176087531,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Ug.imag": {
+      "finite_count": 2195252,
+      "nanmax": 2.9213751209560637,
+      "nanmean": 0.0019746226904730777,
+      "nanmin": -2.619973073354613,
+      "nanstd": 0.13344204994994655,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        -0.009463372418089632,
+        null,
+        null,
+        null,
+        -0.007813023092080821,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Ug.real": {
+      "finite_count": 2195252,
+      "nanmax": 2.868885376756357,
+      "nanmean": 0.018374548036574876,
+      "nanmin": -2.934397517570286,
+      "nanstd": 0.17553639008877353,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0.020957672002320057,
+        null,
+        null,
+        null,
+        -0.10204161647669877,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Uw.imag": {
+      "finite_count": 2195252,
+      "nanmax": 0.5521760646792914,
+      "nanmean": 0.009586320954280659,
+      "nanmin": -0.396832628989732,
+      "nanstd": 0.052299495193432924,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0.005469858528888154,
+        null,
+        null,
+        null,
+        -0.009606967216524796,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "Uw.real": {
+      "finite_count": 2195252,
+      "nanmax": 0.3948236532075917,
+      "nanmean": -0.00838206094479689,
+      "nanmin": -0.4943254508252163,
+      "nanstd": 0.050781373716713846,
+      "samples": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0.003063912483501641,
+        null,
+        null,
+        null,
+        -0.020482288892649123,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "sample_indices": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      959
+    ],
+    [
+      0,
+      0,
+      1919
+    ],
+    [
+      0,
+      0,
+      2879
+    ],
+    [
+      0,
+      479,
+      0
+    ],
+    [
+      0,
+      479,
+      959
+    ],
+    [
+      0,
+      479,
+      1919
+    ],
+    [
+      0,
+      479,
+      2879
+    ],
+    [
+      0,
+      959,
+      0
+    ],
+    [
+      0,
+      959,
+      959
+    ],
+    [
+      0,
+      959,
+      1919
+    ],
+    [
+      0,
+      959,
+      2879
+    ],
+    [
+      0,
+      1439,
+      0
+    ],
+    [
+      0,
+      1439,
+      959
+    ],
+    [
+      0,
+      1439,
+      1919
+    ],
+    [
+      0,
+      1439,
+      2879
+    ]
+  ],
+  "shape": [
+    1,
+    1440,
+    2880
+  ]
+}

@@ -30,8 +30,20 @@ dependencies = [
     "podaac-data-subscriber",  # provides the `podaac-data-downloader` CLI
 ]
 
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov"]
+
 [project.scripts]
 oscar = "oscar.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "slow: full-day do_eq=True golden regression (run locally/nightly, not on every push)",
+    "regression: numerical fingerprint tests that lock current trusted output",
+]
+addopts = "-ra"
 
 [tool.setuptools.packages.find]
 include = ["oscar*"]
