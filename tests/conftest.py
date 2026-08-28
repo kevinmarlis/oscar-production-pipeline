@@ -4,8 +4,7 @@ Note on the config-at-import coupling: ``oscar.computation.constants`` reads
 ``io_config.yaml`` at import time and bakes the global grid (``y``, ``um``, ``vm``,
 ``eta``, ``spacing``) into module constants keyed off ``SSH_MODE``. Tests therefore run
 against the committed default config (cmems, 0.125 deg) and monkeypatch only the specific
-value a test needs. This is known testability debt, documented in TEST_SUITE_PLAN.md; the
-tests work around it rather than fixing it.
+value a test needs.
 """
 
 import numpy as np
