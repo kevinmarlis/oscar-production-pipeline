@@ -2,6 +2,7 @@ import numpy as np
 import xarray as xr
 import math
 from ..config.setup import *
+from .constants import REARTH
 
 
 def interpolate_dataset(ds):
@@ -22,8 +23,7 @@ def interpolate_dataset(ds):
 
 def calculate_gradient(ds, var):
         # Degrees to meters conversion factor
-        R_earth = 6381e3  # in meters
-        ddegdm = 180.0 / (math.pi * R_earth)
+        ddegdm = 180.0 / (math.pi * REARTH)
 
         # X gradient (longitude)
         dsx = ds[[var]].differentiate("longitude")
