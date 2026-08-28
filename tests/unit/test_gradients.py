@@ -1,10 +1,10 @@
 """Analytic checks on calculate_gradient.
 
-The gradient converts degrees to metres with ``ddegdm = 180 / (pi * R_earth)`` where
-``R_earth = 6381e3`` (note: this differs from the 6371e3 used elsewhere; the test locks the
-value actually in the code). The x-gradient is additionally divided by ``cos(lat)``. Building
-fields that are exact linear ramps makes the expected gradient a known constant, so any
-sign/scaling regression is caught exactly.
+The gradient converts degrees to metres with ``ddegdm = 180 / (pi * REARTH)`` using the
+canonical ``REARTH`` from ``oscar.computation.constants`` (single source of truth). The
+x-gradient is additionally divided by ``cos(lat)``. Building fields that are exact linear
+ramps makes the expected gradient a known constant, so any sign/scaling regression is caught
+exactly.
 """
 
 import math
@@ -12,10 +12,10 @@ import math
 import numpy as np
 import xarray as xr
 
+from oscar.computation.constants import REARTH
 from oscar.computation.interp_and_grad import calculate_gradient
 
-R_EARTH = 6381e3
-DDEGDM = 180.0 / (math.pi * R_EARTH)
+DDEGDM = 180.0 / (math.pi * REARTH)
 
 
 def _field(values_2d, lat, lon):
